@@ -5,6 +5,8 @@ import AboutScene from '../scenes/about-scene';
 import ChangeView from '../components/change-view';
 import View from '../containers/view';
 
+import { Loader, Dimmer } from 'semantic-ui-react';
+
 const DEFAULT_WIDTH = 1280;
 const DEFAULT_HEIGHT = 720;
 
@@ -13,7 +15,7 @@ const DEFAULT_HEIGHT = 720;
 
 export default class About extends React.Component {
 
-  state = { game: {} }
+  state = { game: {}, loading: true }
 
   componentDidMount() {
     const config = {
@@ -39,15 +41,13 @@ export default class About extends React.Component {
       ]
     }
 
-    this.setState(s => ({ game: new Phaser.Game(config) }))
+    this.setState(s => ({ game: new Phaser.Game(config), loading: false }))
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
 
   componentWillUnmount() {
     this.state.game.destroy(true);
+    this.setState(s => ({ game: null, loading: true }))
   }
 
 

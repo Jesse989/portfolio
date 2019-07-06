@@ -17,7 +17,9 @@ code {
   height: 100vh;
   width: 100vw;
 }
-
+h1 {
+  font-size: 28px;
+}
 a {
   color: #495869;
 }
@@ -26,15 +28,48 @@ a:hover {
   color: #697e96;
 }
 
-div.chart {
-  width: 80vh;
+div > .hover:hover {
+  color: orange;
 }
 
+.view {
+  pointer-events: none;
+}
 
-@media (min-width: 320px) and (max-width: 770px) and (orientation: portrait){
+.white {
+  color: #fff;
+}
 
-  div.chart {
-    width: 90vw;
+.orange {
+  color: orange;
+}
+
+.fadeInFast {
+  animation-duration: 3s;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeInFast {
+  from {
+    opacity: 0;
   }
 
+  to {
+    opacity: 1.0;
+  }
+}
+
+.fadeInSlow {
+  animation-duration: 4s;
+  animation-name: fadeInSlow;
+}
+
+@keyframes fadeInSlow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1.0;
+  }
 }

@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import { connect } from 'react-redux';
 
+import { MyName, Skills, Frontend, Backend } from '../components';
+
+
 function View({ active, loading }) {
+  let content;
+  switch (active) {
+    case "welcome":
+      content = <MyName />
+      break;
+    case "skills":
+      content = <Skills />
+      break;
+    case "frontend":
+      content = <Frontend />
+      break;
+    case "backend":
+      content = <Backend />
+      break;
+  }
+
   return (
-    <div style={styles.view}>
+    <div className="view" style={styles.view}>
       <div style={styles.inner}>
       {loading
-        ? (<h1 style={styles.white}>loading...</h1>)
-        : (active === 'welcome')
-          ? <h1 style={styles.white}>welcome</h1>
-          : <h1 style={styles.white}>skills</h1>
+        ? (<h1 className="orange">Loading...</h1>)
+        : content
       }
       </div>
     </div>
@@ -41,11 +58,10 @@ const styles = {
     height: '100%',
     width: '100%',
     zIndex: 0,
+    backgroundColor: 'rgba(0,0,0,.3)'
   },
   inner: {
-    margin: '15vh auto'
+    margin: '20vh auto',
+    width: '90%'
   },
-  white: {
-    color: '#c7d1e9'
-  }
 }

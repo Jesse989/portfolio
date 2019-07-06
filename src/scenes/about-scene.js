@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { store } from '../index';
 
-
 const DEFAULT_HEIGHT = 720;
+const TICK = 50;
+
 
 export default class AboutScene extends Phaser.Scene {
   constructor() {
@@ -17,7 +18,9 @@ export default class AboutScene extends Phaser.Scene {
   }
 
   create() {
-
+    this.badgeCount = 3;
+    this.badgeTimers = [];
+    this.cameras.main.fadeIn(5000);
     this.six = this.add.tileSprite(0, DEFAULT_HEIGHT - 64, 0,  DEFAULT_HEIGHT , '6').setOrigin(0, 1)
     this.five = this.add.tileSprite(0, DEFAULT_HEIGHT - 64, 0,  DEFAULT_HEIGHT , '5').setOrigin(0, 1)
     this.four = this.add.tileSprite(0, DEFAULT_HEIGHT - 64, 0,  DEFAULT_HEIGHT , '4').setOrigin(0, 1)
@@ -29,26 +32,55 @@ export default class AboutScene extends Phaser.Scene {
       .setVisible(false);
     this.physics.add.existing(this.r1, true);
 
-    this.player = this.physics.add.sprite(640, 602, 'none')
-      .setOrigin(.5, 1);
+    this.player = this.physics.add.sprite(640, 602, 'spark ')
+      .setOrigin(.5, 1)
+      .setVisible(false);
 
+    this.spark = this.add.particles('spark').createEmitter({
+       x: 640,
+       y: 452,
+       speed: { min: 20, max: 100 },
+       angle: { min: 0, max: 360},
+       scale: { start: 1, end: 0},
+       alpha: { start: 0, end: 0.7},
+       blendMode: 'ADD',
+       lifespan: 2000,
+       //active: false
+     });
+     this.spark.reserve(1000);
 
+     this.input.on('pointermove', (p) => {
+       this.spark.setPosition(p.x, p.y);
+     })
   };
 
   update() {
+    if (this.appState.screen == 'backend') {
+      while (this.badgeCount > 0) {
+        let multi = this.badgeCount;
+        this.badgeTimers.push(this.time.addEvent({
+          delay: (2000 / multi),
+          callback: function() {
+            console.log("testing: ", multi)
+          },
+          callbackScope: this,
+        }));
+        this.badgeCount--;
 
+      }
+    }
     // if accelerating right:
     if (this.appState.moving === 'ACCELERATE') {
       if (this.appState.direction === 'right') {
-        this.player.setAccelerationX(1);
+        this.player.setAccelerationX(10);
       } else if (this.appState.direction === 'left') {
-        this.player.setAccelerationX(-1);
+        this.player.setAccelerationX(-10);
       }
     } else if (this.appState.moving === 'DECELERATE') {
       if (this.appState.direction === 'right') {
-        this.player.setAccelerationX(-2);
+        this.player.setAccelerationX(-20);
       } else if (this.appState.direction === 'left') {
-        this.player.setAccelerationX(2);
+        this.player.setAccelerationX(20);
       }
     } else {
       this.player.body.stop()
@@ -60,11 +92,10 @@ export default class AboutScene extends Phaser.Scene {
     if (!this.player.body.velocity.x) return;
 
 
-    this.six.tilePositionX += 0.6 * this.player.body.velocity.x
-    this.five.tilePositionX += 1.2 * this.player.body.velocity.x
-    this.four.tilePositionX += 2.5 * this.player.body.velocity.x
-    this.three.tilePositionX += 3.5 * this.player.body.velocity.x
-    this.two.tilePositionX += 7.5 * this.player.body.velocity.x
-    this.one.tilePositionX += 20 * this.player.body.velocity.x
+    this.five.tilePositionX += 0.1 * this.player.body.velocity.x
+    this.four.tilePositionX += 0.3 * this.player.body.velocity.x
+    this.three.tilePositionX += 1 * this.player.body.velocity.x
+    this.two.tilePositionX += 3 * this.player.body.velocity.x
+    this.one.tilePositionX += 10 * this.player.body.velocity.x
   }
 }

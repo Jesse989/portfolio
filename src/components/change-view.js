@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 function ChangeView({ moveRight, moveLeft, loading }) {
   return (
     <Fragment>
-      <div style={styles.floatingLeft}>
+      <div className="white hover" style={styles.floatingLeft}>
         <Icon
           disabled={loading}
           onClick={moveLeft}
@@ -16,7 +16,7 @@ function ChangeView({ moveRight, moveLeft, loading }) {
           name='angle double left'
         />
       </div>
-      <div style={styles.floatingRight}>
+      <div className="white hover" style={styles.floatingRight}>
         <Icon
           disabled={loading}
           onClick={moveRight}
@@ -36,6 +36,9 @@ const mapStateToProps = state => {
   }
 }
 
+const TIME_TO_STOP = 420;
+const TIME_RUNNING = 1000;
+
 const mapDispatchToProps = dispatch => {
   return {
     moveRight: () => {
@@ -43,18 +46,18 @@ const mapDispatchToProps = dispatch => {
       setTimeout(() => {
         dispatch(decelerate('right'));
         setTimeout(() => {
-          dispatch(visibleScreen('skills'))
-        }, 1000);
-      }, 2000);
+          dispatch(visibleScreen())
+        }, TIME_TO_STOP);
+      }, TIME_RUNNING);
     },
     moveLeft: () => {
       dispatch(accelerate('left'));
       setTimeout(() => {
         dispatch(decelerate('left'));
         setTimeout(() => {
-          dispatch(visibleScreen('skills'))
-        }, 1000);
-      }, 2000);
+          dispatch(visibleScreen())
+        }, TIME_TO_STOP);
+      }, TIME_RUNNING);
     },
   }
 }
@@ -79,7 +82,4 @@ const styles = {
     zIndex: 1,
     cursor: 'pointer'
   },
-  white: {
-    color: '#ffffff'
-  }
 }

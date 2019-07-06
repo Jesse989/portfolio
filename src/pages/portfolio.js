@@ -9,7 +9,6 @@ export default function Portfolio() {
   return (
     <Container style={styles.container}>
     <Item.Group divided relaxed>
-      <Header as="h1">Portfolio</Header>
       <Project
         title="Personal Library Notebook"
         meta="Keep track of your personal library with ratings and notes."

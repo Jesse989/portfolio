@@ -8,7 +8,7 @@ import {
 
 
 
-const screens = ['welcome', 'skills'];
+const screens = ['welcome', 'skills', 'frontend', 'backend'];
 let index = 0;
 const screen = () => {
   return screens[++index % screens.length]
@@ -18,7 +18,8 @@ const initialState = {
   moving: false,
   direction: null,
   screen: 'welcome',
-  loading: true
+  loading: true,
+  initTime: Date.now()
 }
 
 // reducers
@@ -45,7 +46,8 @@ function gameView(state = initialState, action) {
         moving: false,
         direction: null,
         screen: screen(),
-        loading: false
+        loading: false,
+        initTime: Date.now()
       }
     case SET_LOADING:
       return Object.assign({},
