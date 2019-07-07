@@ -18,7 +18,7 @@ export default class AboutScene extends Phaser.Scene {
 
   create() {
     this.tileSprites = [];
-    this.cameras.main.fadeIn(5000);
+    this.cameras.main.fadeIn(4000);
 
     for (let i = 6; i >= 0; i--) {
       this.tileSprites[i] = this.add.tileSprite(0, DEFAULT_HEIGHT - 64, 0,  DEFAULT_HEIGHT , i + 1)
@@ -57,10 +57,7 @@ export default class AboutScene extends Phaser.Scene {
             targets: tp,
             tilePositionX: `+=${scrollMult *= 2}`,               // '+=100'
             ease: 'Elastic',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
-            duration: 1000,
-            repeat: 0,            // -1: infinity
-            yoyo: false
-
+            duration: 2000,
         });
       }
     }

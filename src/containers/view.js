@@ -26,7 +26,7 @@ function View({ active, loading }) {
     <div className="view" style={styles.view}>
       <div style={styles.inner}>
       {loading
-        ? (<h1 className="orange">Loading...</h1>)
+        ? (<h1 className="orange pulse">Loading...</h1>)
         : content
       }
       </div>

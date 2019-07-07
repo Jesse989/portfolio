@@ -44,8 +44,27 @@ div > .hover:hover {
   color: orange;
 }
 
+
+.pulse {
+  animation-duration: 2s;
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+   0% {
+     opacity: 0;
+   }
+   50% {
+     opacity: .5;
+   }
+   100% {
+     opacity: 0;
+   }
+ }
+
 .fadeInFast {
-  animation-duration: 3s;
+  animation-duration: 2s;
   animation-name: fadeIn;
 }
 
