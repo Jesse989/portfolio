@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import {
   ACCELERATE,
   DECELERATE,
-  VISIBLE_SCREEN,
+  CHANGE_SCREEN,
   SET_LOADING
 } from './actions';
 
@@ -10,8 +10,12 @@ import {
 
 const screens = ['welcome', 'skills', 'frontend', 'backend'];
 let index = 0;
-const screen = () => {
-  return screens[++index % screens.length]
+
+const screen = (direction) => {
+  if (direction === "foward")
+    return screens[++index % screens.length];
+  else
+    return screens[--index % screens.length];
 }
 
 const initialState = {
@@ -41,11 +45,11 @@ function gameView(state = initialState, action) {
         loading: true
       }
     );
-    case VISIBLE_SCREEN:
+    case CHANGE_SCREEN:
       return {
         moving: false,
         direction: null,
-        screen: screen(),
+        screen: screen(action.direction),
         loading: false,
         initTime: Date.now()
       }

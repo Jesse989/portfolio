@@ -1,6 +1,6 @@
 import React from 'react';
 import { Project } from '../components'
-import { Item, Container, Header } from 'semantic-ui-react';
+import { Item, Container } from 'semantic-ui-react';
 import labyrinthScreen from '../assets/lab_port.png';
 import coffeeScreen from '../assets/coffee_screen.png';
 import libraryScreen from '../assets/lib_screen.png'

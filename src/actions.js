@@ -1,7 +1,7 @@
 
 export const ACCELERATE = 'ACCELERATE';
 export const DECELERATE = 'DECELERATE';
-export const VISIBLE_SCREEN = 'VISIBLE_SCREEN';
+export const CHANGE_SCREEN = 'CHANGE_SCREEN';
 export const SET_LOADING = 'SET_LOADING';
 
 export function accelerate(direction) {
@@ -18,9 +18,10 @@ export function decelerate(direction) {
   }
 }
 
-export function visibleScreen() {
+export function changeScreen(direction) {
   return {
-    type: VISIBLE_SCREEN,
+    type: CHANGE_SCREEN,
+    direction,
   }
 }
 

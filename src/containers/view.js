@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import { connect } from 'react-redux';
 
@@ -8,7 +8,7 @@ import { MyName, Skills, Frontend, Backend } from '../components';
 function View({ active, loading }) {
   let content;
   switch (active) {
-    case "welcome":
+    default:
       content = <MyName />
       break;
     case "skills":

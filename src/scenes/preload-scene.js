@@ -9,8 +9,7 @@ export default class PreloadScene extends Phaser.Scene {
 
   preload() {
     this.cameras.main.backgroundColor.setTo(0x000);
-    const width = this.cameras.main.width;
-    const height = this.cameras.main.heigh;
+
     this.load.image('spark', './assets/blue.png');
     this.load.image('1', './assets/background/1.png');
     this.load.image('2', './assets/background/2.png');

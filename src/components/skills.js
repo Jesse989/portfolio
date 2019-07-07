@@ -1,15 +1,21 @@
 import React, { Fragment } from 'react';
+import jsImg from '../assets/javascript.svg';
+import pImg from '../assets/phaser-icon.png';
+import sImg from '../assets/sequelize.svg';
+import rImg from '../assets/redux.svg';
+import nImg from '../assets/nodejs-icon.svg';
+import tImg from '../assets/tiled-logo.png';
 
 const Skills = () => (
   <Fragment>
     <h1 className="white fadeInFast">I build fully responsive web apps using cutting edge <b className="orange">JavaScript</b> technologies:</h1>
     <br />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/javascript.svg`)} />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/phaser-icon.png`)} />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/sequelize.svg`)} />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/redux.svg`)} />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/nodejs-icon.svg`)} />
-    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={require(`../assets/tiled-logo.png`)} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={jsImg} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={pImg} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={sImg} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={rImg} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={nImg} />
+    <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={tImg} />
   </Fragment>
 )
 

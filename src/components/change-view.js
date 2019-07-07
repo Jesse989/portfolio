@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Icon } from 'semantic-ui-react';
-import { accelerate, decelerate, visibleScreen } from '../actions';
+import { accelerate, decelerate, changeScreen } from '../actions';
 import { connect } from 'react-redux';
 
 function ChangeView({ moveRight, moveLeft, loading }) {
@@ -46,7 +46,7 @@ const mapDispatchToProps = dispatch => {
       setTimeout(() => {
         dispatch(decelerate('right'));
         setTimeout(() => {
-          dispatch(visibleScreen())
+          dispatch(changeScreen('foward'))
         }, TIME_TO_STOP);
       }, TIME_RUNNING);
     },
@@ -55,7 +55,7 @@ const mapDispatchToProps = dispatch => {
       setTimeout(() => {
         dispatch(decelerate('left'));
         setTimeout(() => {
-          dispatch(visibleScreen())
+          dispatch(changeScreen('backward'))
         }, TIME_TO_STOP);
       }, TIME_RUNNING);
     },

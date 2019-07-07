@@ -2,11 +2,6 @@ import React, { Component } from 'react'
 import { Item, Form } from 'semantic-ui-react'
 import { CONST } from '../const.js'
 
-const options = [
-  { key: 'm', text: 'Male', value: 'male' },
-  { key: 'f', text: 'Female', value: 'female' },
-  { key: 'o', text: 'Other', value: 'other' },
-]
 
 class ContactForm extends Component {
   state = {}

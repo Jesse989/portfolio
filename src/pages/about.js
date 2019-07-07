@@ -5,8 +5,6 @@ import AboutScene from '../scenes/about-scene';
 import ChangeView from '../components/change-view';
 import View from '../containers/view';
 
-import { Loader, Dimmer } from 'semantic-ui-react';
-
 const DEFAULT_WIDTH = 1280;
 const DEFAULT_HEIGHT = 720;
 
