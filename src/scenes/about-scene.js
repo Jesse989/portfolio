@@ -56,7 +56,7 @@ export default class AboutScene extends Phaser.Scene {
         this.tweens.add({
             targets: tp,
             tilePositionX: `+=${scrollMult *= 2}`,               // '+=100'
-            ease: 'Elastic',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+            ease: 'Back',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
             duration: 2000,
         });
       }
