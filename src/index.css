@@ -29,11 +29,7 @@ a:hover {
 }
 
 div > .hover:hover {
-  color: orange;
-}
-
-.view {
-  pointer-events: none;
+  color: #f2711c;
 }
 
 .white {
@@ -41,7 +37,7 @@ div > .hover:hover {
 }
 
 .orange {
-  color: orange;
+  color: #f2711c;
 }
 
 
@@ -90,5 +86,24 @@ div > .hover:hover {
 
   to {
     opacity: 1.0;
+  }
+}
+
+.rotate {
+  animation-duration: 2s;
+  animation-name: rotate;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: .8;
+  }
+  100% {
+    transform: rotate(420deg);
+    opacity: 0;
   }
 }

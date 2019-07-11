@@ -8,7 +8,7 @@ import {
 
 
 
-const screens = ['welcome', 'skills', 'frontend', 'backend'];
+const screens = ['welcome', 'skills', 'frontend', 'backend', 'action'];
 let index = 0;
 
 const screen = (direction) => {

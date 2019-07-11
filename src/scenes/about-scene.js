@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { store } from '../index';
 
 const DEFAULT_HEIGHT = 720;
+const DEFAULT_WIDTH = 1280;
 
 
 export default class AboutScene extends Phaser.Scene {
@@ -27,20 +28,20 @@ export default class AboutScene extends Phaser.Scene {
     this.tileSprites.reverse();
 
     this.spark = this.add.particles('spark').createEmitter({
-       x: 640,
-       y: 452,
+       x: {min: 0, max: DEFAULT_WIDTH},
+       y: 0,
        speed: { min: 20, max: 100 },
        angle: { min: 0, max: 360},
        scale: { start: 1, end: 0},
        alpha: { start: 0, end: 0.7},
        blendMode: 'ADD',
-       lifespan: 2000,
+       lifespan: 6000,
        //active: false
      });
      this.spark.reserve(1000);
 
      this.input.on('pointermove', (p) => {
-       this.spark.setPosition(p.x, p.y);
+      //  this.spark.setPosition(p.x, p.y);
      })
   };
 
@@ -55,8 +56,8 @@ export default class AboutScene extends Phaser.Scene {
       for (let tp of this.tileSprites) {
         this.tweens.add({
             targets: tp,
-            tilePositionX: `+=${scrollMult *= 2}`,               // '+=100'
-            ease: 'Back',       // 'Cubic', 'Elastic', 'Bounce', 'Back'
+            tilePositionX: `+=${scrollMult *= 3}`,
+            ease: 'Expo',
             duration: 2000,
         });
       }

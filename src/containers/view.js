@@ -1,11 +1,10 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
-
-import { MyName, Skills, Frontend, Backend } from '../components';
-
+import { MyName, Skills, Frontend, Backend, CallToAction } from '../components';
+import loader from '../assets/loader.png';
 
 function View({ active, loading }) {
+  console.log('rendering view');
   let content;
   switch (active) {
     default:
@@ -20,13 +19,16 @@ function View({ active, loading }) {
     case "backend":
       content = <Backend />
       break;
+    case "action":
+      content = <CallToAction />
+      break;
   }
 
   return (
     <div className="view" style={styles.view}>
       <div style={styles.inner}>
       {loading
-        ? (<h1 className="orange pulse">Loading...</h1>)
+        ? (<img className={"pulse rotate"} src={loader} />)
         : content
       }
       </div>
@@ -58,7 +60,7 @@ const styles = {
     height: '100%',
     width: '100%',
     zIndex: 0,
-    backgroundColor: 'rgba(0,0,0,.3)'
+    backgroundColor: 'rgba(0,0,50,.3)'
   },
   inner: {
     margin: '20vh auto',

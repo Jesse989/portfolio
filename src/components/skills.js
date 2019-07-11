@@ -8,7 +8,7 @@ import tImg from '../assets/tiled-logo.png';
 
 const Skills = () => (
   <Fragment>
-    <h1 className="white fadeInFast">I build fully responsive web apps using cutting edge <b className="orange">JavaScript</b> technologies:</h1>
+    <h1 className="white fadeInFast">I specialize in applications written with modern <b className="orange">JavaScript</b> technologies:</h1>
     <br />
     <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={jsImg} />
     <img className="fadeInSlow" alt='tech-icon' style={styles.svg} src={pImg} />
