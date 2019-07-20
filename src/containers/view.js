@@ -8,48 +8,42 @@ function View({ active, loading }) {
   let content;
   switch (active) {
     default:
-      content = <MyName />
+      content = <MyName />;
       break;
-    case "skills":
-      content = <Skills />
+    case 'skills':
+      content = <Skills />;
       break;
-    case "frontend":
-      content = <Frontend />
+    case 'frontend':
+      content = <Frontend />;
       break;
-    case "backend":
-      content = <Backend />
+    case 'backend':
+      content = <Backend />;
       break;
-    case "action":
-      content = <CallToAction />
+    case 'action':
+      content = <CallToAction />;
       break;
   }
 
   return (
     <div className="view" style={styles.view}>
       <div style={styles.inner}>
-      {loading
-        ? (<img className={"pulse rotate"} src={loader} />)
-        : content
-      }
+        {loading ? <img className={'pulse rotate'} src={loader} /> : content}
       </div>
     </div>
-  )
+  );
 }
-
 
 const mapStateToProps = state => {
   return {
     active: state.gameView.screen,
-    loading: state.gameView.loading,
-  }
-}
+    loading: state.gameView.loading
+  };
+};
 
 export default connect(
   mapStateToProps,
   null
-)(View)
-
-
+)(View);
 
 const styles = {
   view: {
@@ -64,6 +58,7 @@ const styles = {
   },
   inner: {
     margin: '20vh auto',
-    width: '90%'
-  },
-}
+    width: '90%',
+    maxWidth: '800px'
+  }
+};
