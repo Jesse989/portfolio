@@ -17,5 +17,3 @@ const styles = {
     paddingBottom: 86
   }
 };
-
-// create multi-step form:

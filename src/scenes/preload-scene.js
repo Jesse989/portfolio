@@ -4,7 +4,7 @@ import { setLoading } from '../actions';
 
 export default class PreloadScene extends Phaser.Scene {
   constructor() {
-    super ({ key: 'PreloadScene'});
+    super({ key: 'PreloadScene' });
   }
 
   preload() {
@@ -19,9 +19,9 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.image('6', './assets/background/6.png');
     // load event:
     // load event:
-    this.load.on('complete', ()=> {
+    this.load.on('complete', () => {
       store.dispatch(setLoading(false));
-      this.scene.start('AboutScene')
-    })
+      this.scene.start('AboutScene');
+    });
   }
 }

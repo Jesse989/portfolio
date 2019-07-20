@@ -3,7 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
-require('dotenv').config()
+require('dotenv').config();
 
 const PORT = process.env.PORT || 8000;
 
@@ -31,20 +31,19 @@ app.post('/api', async (req, res) => {
     html: createEmail(req.body)
   });
 
-  if (info.accepted[0] === email)
-    res.status(200).json({ status: "success"})
-  else
-    res.status(505).json({ status: "failed"})
-})
+  if (info.accepted[0] === email) res.status(200).json({ status: 'success' });
+  else res.status(505).json({ status: 'failed' });
+});
 
 app.listen(PORT, () => {
   console.log(`server listening on port: ${PORT}`);
-})
+});
 
+// create nice looking email template:
 function createEmail({ name, email, website, budget, timeline, description }) {
   return `<h1>Hello ${name}, </h1>
           <h2>your website at ${website} looks great!</h2>
           <h3>I would like to talk to you about your budget of ${budget}<h3>
           <h3>and your timeline of ${timeline}.</h3>
-          <p> your description of ${description} sounds pretty cool.</p>`
+          <p> your description of ${description} sounds pretty cool.</p>`;
 }

@@ -8,16 +8,15 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers';
 
-
 import * as serviceWorker from './serviceWorker';
 
 export const store = createStore(rootReducer);
 
-
 ReactDOM.render(
   <Provider store={store}>
     <Pages />
-  </Provider>, document.getElementById('root')
+  </Provider>,
+  document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

@@ -8,12 +8,8 @@ import View from '../containers/view';
 const DEFAULT_WIDTH = 1280;
 const DEFAULT_HEIGHT = 720;
 
-
-
-
 export default class About extends React.Component {
-
-  state = { game: {}, loading: true }
+  state = { game: {}, loading: true };
 
   componentDidMount() {
     const config = {
@@ -33,21 +29,16 @@ export default class About extends React.Component {
         width: DEFAULT_WIDTH,
         height: DEFAULT_HEIGHT
       },
-      scene: [
-        PreloadScene,
-        AboutScene
-      ]
-    }
+      scene: [PreloadScene, AboutScene]
+    };
 
-    this.setState(s => ({ game: new Phaser.Game(config), loading: false }))
+    this.setState(s => ({ game: new Phaser.Game(config), loading: false }));
   }
-
 
   componentWillUnmount() {
     this.state.game.destroy(true);
-    this.setState(s => ({ game: null, loading: true }))
+    this.setState(s => ({ game: null, loading: true }));
   }
-
 
   render() {
     return (
@@ -55,7 +46,7 @@ export default class About extends React.Component {
         <ChangeView />
         <View />
       </div>
-    )
+    );
   }
 }
 
@@ -63,4 +54,4 @@ const styles = {
   game: {
     zIndex: 0
   }
-}
+};
