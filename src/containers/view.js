@@ -4,7 +4,6 @@ import { MyName, Skills, Frontend, Backend, CallToAction } from '../components';
 import loader from '../assets/loader.png';
 
 function View({ active, loading }) {
-  console.log('rendering view');
   let content;
   switch (active) {
     default:

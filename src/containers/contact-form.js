@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Item, Form, Dimmer, Loader, Message } from 'semantic-ui-react';
 import validator from 'validator';
-import { postData } from '../form-api';
+import { postData } from '../utils/formAPI';
 import ContactModal from '../components/contact-modal';
 import { validateForm } from '../utils/validateForm';
 

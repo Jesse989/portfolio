@@ -1,5 +1,5 @@
 import React from 'react';
-import { Item, Container } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import ContactForm from '../containers/contact-form';
 
 export default function Contact() {

@@ -12,7 +12,6 @@ export default class AboutScene extends Phaser.Scene {
     this.appState = {};
     store.subscribe(() => {
       this.appState = store.getState().gameView;
-      console.log(this.appState);
     });
   }
 
@@ -39,10 +38,6 @@ export default class AboutScene extends Phaser.Scene {
       //active: false
     });
     this.spark.reserve(1000);
-
-    this.input.on('pointermove', p => {
-      //  this.spark.setPosition(p.x, p.y);
-    });
   }
 
   update() {

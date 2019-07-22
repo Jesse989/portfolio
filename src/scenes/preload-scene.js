@@ -17,7 +17,7 @@ export default class PreloadScene extends Phaser.Scene {
     this.load.image('4', './assets/background/4.png');
     this.load.image('5', './assets/background/5.png');
     this.load.image('6', './assets/background/6.png');
-    // load event:
+
     // load event:
     this.load.on('complete', () => {
       store.dispatch(setLoading(false));
