@@ -1,24 +1,44 @@
 import { combineReducers } from 'redux';
 import { ACCELERATE, DECELERATE, CHANGE_SCREEN, SET_LOADING } from './actions';
 
-const screens = ['welcome', 'skills', 'frontend', 'backend', 'action'];
+const screens: string[] = [
+  'welcome',
+  'skills',
+  'frontend',
+  'backend',
+  'action'
+];
 let index = 0;
 
-const screen = direction => {
+const screen = (direction: string): string => {
   if (direction === 'foward') return screens[++index % screens.length];
   else return screens[--index % screens.length];
 };
 
-const initialState = {
+type State = {
+  moving: boolean;
+  direction: string;
+  screen: string;
+  loading: boolean;
+  initTime: number;
+};
+
+const initialState: State = {
   moving: false,
-  direction: null,
+  direction: '',
   screen: 'welcome',
   loading: true,
   initTime: Date.now()
 };
 
+interface Action {
+  type: string;
+  direction: string;
+  status: string;
+}
+
 // reducers
-function gameView(state = initialState, action) {
+function gameView(state = initialState, action: Action): State {
   switch (action.type) {
     case ACCELERATE:
       return Object.assign(
@@ -35,7 +55,7 @@ function gameView(state = initialState, action) {
     case CHANGE_SCREEN:
       return {
         moving: false,
-        direction: null,
+        direction: '',
         screen: screen(action.direction),
         loading: false,
         initTime: Date.now()

@@ -1,7 +1,9 @@
-const express = require('express');
+import nodemailer from 'nodemailer';
+import bodyParser from 'body-parser';
+import express from 'express';
+import { createEmail } from './src/utils/createEmail';
+
 const app = express();
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
 
 require('dotenv').config();
 
@@ -9,8 +11,10 @@ const PORT = process.env.PORT || 8000;
 
 app.use(bodyParser.json());
 
-app.post('/api', async (req, res) => {
-  let { name, email, website, budget, timeline, description } = req.body;
+app.use('/', express.static('build'));
+
+app.post('/api', async (req: Express.Request, res: Express.Response) => {
+  let { first, last, email, website, budget, description } = req.body;
   // create email:
 
   // create reusable transporter object using the default SMTP transport
@@ -27,7 +31,7 @@ app.post('/api', async (req, res) => {
     from: `"Jesse Neumann" <${process.env.EMAIL}>`,
     to: email, // list of receivers
     bcc: process.env.EMAIL,
-    subject: `${name}, thanks for your interest.`, // Subject line
+    subject: `${first}, I'm the developer for the job.`, // Subject line
     html: createEmail(req.body)
   });
 
@@ -38,12 +42,3 @@ app.post('/api', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`server listening on port: ${PORT}`);
 });
-
-// create nice looking email template:
-function createEmail({ name, email, website, budget, timeline, description }) {
-  return `<h1>Hello ${name}, </h1>
-          <h2>your website at ${website} looks great!</h2>
-          <h3>I would like to talk to you about your budget of ${budget}<h3>
-          <h3>and your timeline of ${timeline}.</h3>
-          <p> your description of ${description} sounds pretty cool.</p>`;
-}

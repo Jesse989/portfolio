@@ -1,35 +1,9 @@
 import React, { Component } from 'react';
 import { Item, Form, Dimmer, Loader, Message } from 'semantic-ui-react';
-import { CONST } from '../const.js';
 import validator from 'validator';
 import { postData } from '../form-api';
 import ContactModal from '../components/contact-modal';
-
-const validateForm = formData => {
-  let errors = [];
-  for (let type in formData) {
-    // if name:
-    if (type === 'first' || type === 'last') {
-      // check value
-      if (!validator.isAlpha(formData[type]))
-        errors.push('Name must contain letters only');
-    } else if (type === 'email') {
-      if (!validator.isEmail(formData[type]))
-        errors.push('Please enter a valid email');
-    } else if (type === 'website') {
-      if (!validator.isURL(formData[type])) errors.push('Invalid URL');
-    } else if (type === 'budget') {
-      if (!validator.isCurrency(formData[type]))
-        errors.push('Enter amount in USD');
-    } else if (type === 'spam') {
-      if (formData[type] != 3) errors.push('Confirm that 1 + 2 = 3');
-    } else if (type === 'description') {
-      if (!formData[type]) errors.push('Briefly describe your project');
-    }
-  }
-
-  return errors;
-};
+import { validateForm } from '../utils/validateForm';
 
 class ContactForm extends Component {
   state = { loading: true, errors: [], successModal: false, formData: {} };
@@ -54,7 +28,7 @@ class ContactForm extends Component {
   handleSubmit = e => {
     this.setState({ loading: true });
 
-    postData('/api', this.state) // this.state = form data
+    postData('/api', this.state.formData) // this.state = form data
       .then(data => {
         if (data.status === 'success') {
           this.setState({ loading: false, formData: {}, successModal: true });
@@ -65,16 +39,6 @@ class ContactForm extends Component {
 
   render() {
     const { loading, errors, successModal, formData } = this.state;
-    console.log(
-      'loading: ',
-      loading,
-      'errors: ',
-      errors,
-      'success: ',
-      successModal,
-      'formData; ',
-      formData
-    );
 
     const description =
       'Fill out the form below with some info about your project and I will get back to you.';
