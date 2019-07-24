@@ -7,17 +7,18 @@
 3. npm install
 4. npm start
 
-## mail server should be started for emailer to work.
-
-1. npm run server
+## mail server should be downloaded and running for confirmation email to work
 
 # TODO:
 
-- tests
+- tests:
+  - react components
+  - redux store
+  - e2e
 - form validation before allowing submission. (done)
 - show user if confirmation email fails, prompt for new email.
 - create email template (done)
-- create test for server
+- create test for server (done)
 - rethink flow in about
 - fill out 'slide' components
 - img placeholders in portfolio

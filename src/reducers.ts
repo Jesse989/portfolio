@@ -15,7 +15,7 @@ const screen = (direction: string): string => {
   else return screens[--index % screens.length];
 };
 
-type State = {
+export type GameView = {
   moving: boolean;
   direction: string;
   screen: string;
@@ -23,7 +23,7 @@ type State = {
   initTime: number;
 };
 
-const initialState: State = {
+const initialState: GameView = {
   moving: false,
   direction: '',
   screen: 'welcome',
@@ -38,7 +38,7 @@ interface Action {
 }
 
 // reducers
-function gameView(state = initialState, action: Action): State {
+function gameView(state = initialState, action: Action): GameView {
   switch (action.type) {
     case ACCELERATE:
       return Object.assign(
@@ -66,6 +66,10 @@ function gameView(state = initialState, action: Action): State {
       return state;
   }
 }
+
+export type State = {
+  gameView: GameView;
+};
 
 // combine reducers
 const rootReducer = combineReducers({

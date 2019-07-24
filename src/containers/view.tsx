@@ -1,9 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { MyName, Skills, Frontend, Backend, CallToAction } from '../components';
-import loader from '../assets/loader.png';
+import * as loader from '../assets/loader.png';
+import { State } from '../reducers';
 
-function View({ active, loading }) {
+interface ViewChange {
+  active: string;
+  loading: boolean;
+}
+
+function View({ active, loading }: ViewChange) {
   let content;
   switch (active) {
     default:
@@ -26,13 +32,17 @@ function View({ active, loading }) {
   return (
     <div className="view" style={styles.view}>
       <div style={styles.inner}>
-        {loading ? <img className={'pulse rotate'} src={loader} /> : content}
+        {loading ? (
+          <img alt="loading spinner" className={'pulse rotate'} src={loader} />
+        ) : (
+          content
+        )}
       </div>
     </div>
   );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: State) => {
   return {
     active: state.gameView.screen,
     loading: state.gameView.loading
@@ -54,10 +64,10 @@ const styles = {
     width: '100%',
     zIndex: 0,
     backgroundColor: 'rgba(0,0,50,.3)'
-  },
+  } as React.CSSProperties,
   inner: {
     margin: '20vh auto',
     width: '90%',
     maxWidth: '800px'
-  }
+  } as React.CSSProperties
 };

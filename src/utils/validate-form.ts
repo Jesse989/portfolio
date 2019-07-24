@@ -1,14 +1,14 @@
 import validator from 'validator';
-import { ContactInfo } from '../interfaces';
+import { ContactInfo } from '../containers/contact-form';
 
 export const validateForm = (formData: ContactInfo) => {
-  let errors = [];
+  let errors: string[] = [];
   for (let type in formData) {
     // if name:
     if (type === 'first' || type === 'last') {
       // check value
       if (!validator.isAlpha(formData[type]))
-        errors.push('Name must contain letters only');
+        errors.push(`Your ${type} name must contain letters only`);
     } else if (type === 'email') {
       if (!validator.isEmail(formData[type]))
         errors.push('Please enter a valid email');
@@ -19,7 +19,7 @@ export const validateForm = (formData: ContactInfo) => {
         // validator takes currency string
         errors.push('Enter amount in USD');
     } else if (type === 'spam') {
-      if (formData[type] != 3) errors.push('Confirm that 1 + 2 = 3');
+      if (formData[type] !== Number(3)) errors.push('Confirm that 1 + 2 = 3');
     } else if (type === 'description') {
       if (!formData[type]) errors.push('Briefly describe your project');
     }

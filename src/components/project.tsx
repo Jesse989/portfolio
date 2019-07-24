@@ -1,6 +1,15 @@
 import React from 'react';
 import { Item, Loader } from 'semantic-ui-react';
 
+type Props = {
+  title: string;
+  meta: string;
+  description: string[];
+  stack: string[];
+  link: string;
+  img: string;
+};
+
 export default function Project({
   title,
   meta,
@@ -8,7 +17,7 @@ export default function Project({
   stack,
   link,
   img
-}) {
+}: Props) {
   const icons =
     stack &&
     stack.length &&

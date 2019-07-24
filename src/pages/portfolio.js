@@ -76,6 +76,7 @@ const projects = [
 export default function Portfolio() {
   const displayProjects = projects.map((project, index) => (
     <Project
+      key={index}
       title={projects[index].title}
       meta={projects[index].meta}
       description={projects[index].description}

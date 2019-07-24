@@ -1,37 +1,81 @@
 import React, { Component } from 'react';
 import { Item, Form, Dimmer, Loader, Message } from 'semantic-ui-react';
 import validator from 'validator';
-import { postData } from '../utils/formAPI';
+import { postData } from '../utils/form-api';
 import ContactModal from '../components/contact-modal';
-import { validateForm } from '../utils/validateForm';
+import { validateForm } from '../utils/validate-form';
 
-class ContactForm extends Component {
-  state = { loading: true, errors: [], successModal: false, formData: {} };
+export type ContactInfo = {
+  first: string;
+  last: string;
+  email: string;
+  website: string;
+  budget: string;
+  spam: number;
+  description: string;
+};
+
+type State = {
+  loading: boolean;
+  errors: string[];
+  successModal: boolean;
+  formData: ContactInfo;
+};
+
+const defaultFormData: ContactInfo = {
+  first: '',
+  last: '',
+  email: '',
+  website: '',
+  budget: '',
+  spam: 0,
+  description: ''
+};
+
+const initialState = Object.freeze({
+  loading: true,
+  errors: [],
+  successModal: false,
+  formData: defaultFormData
+});
+
+class ContactForm extends Component<any, State> {
+  readonly state = initialState;
 
   componentDidMount() {
-    this.setState({ loading: false });
+    this.setState(s => ({ loading: false }));
   }
 
-  handleChange = (e, { value }) => {
+  handleChange = (e: any) => {
     const formData = Object.assign({}, this.state.formData, {
-      [e.target.id]: value
+      [e.target.id]: e.target.value
     });
 
+    // change strings to title case?
+    this.setState({ formData });
+
+    const errors = validateForm(this.state.formData);
+
     this.setState({
-      formData,
-      errors: validateForm(formData)
+      errors
     });
   };
 
   closeModal = () => this.setState({ successModal: false });
 
-  handleSubmit = e => {
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     this.setState({ loading: true });
 
     postData('/api', this.state.formData) // this.state = form data
       .then(data => {
         if (data.status === 'success') {
-          this.setState({ loading: false, formData: {}, successModal: true });
+          this.setState({
+            loading: false,
+            formData: defaultFormData,
+            successModal: true
+          });
+        } else if (data.status === 'failed') {
+          this.setState({ loading: false, successModal: false });
         }
       })
       .catch(error => console.error(error)); // where to send the err?

@@ -1,7 +1,12 @@
 import React from 'react';
 import { Modal, Header, Button, Icon } from 'semantic-ui-react';
 
-const ContactModal = ({ modalOpen, toClose }) => {
+type Props = {
+  modalOpen: boolean;
+  toClose: () => void;
+};
+
+const ContactModal = ({ modalOpen, toClose }: Props) => {
   return (
     <Modal open={modalOpen} basic size="small">
       <Header icon="browser" content="Submitted Succesfully" />
