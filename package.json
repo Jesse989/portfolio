@@ -44,9 +44,13 @@
     ]
   },
   "devDependencies": {
+    "@types/chai": "^4.1.7",
     "@types/enzyme": "^3.10.3",
     "@types/reach__router": "^1.2.4",
     "@types/react-redux": "^7.1.1",
-    "@types/redux": "^3.6.0"
+    "@types/redux": "^3.6.0",
+    "@types/sinon": "^7.0.13",
+    "chai": "^4.2.0",
+    "sinon": "^7.3.2"
   }
 }
