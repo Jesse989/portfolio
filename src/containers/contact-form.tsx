@@ -66,7 +66,7 @@ class ContactForm extends Component<any, State> {
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     this.setState({ loading: true });
 
-    postData('/api', this.state.formData) // this.state = form data
+    postData('https://contact-follow-up.herokuapp.com/api', this.state.formData) // this.state = form data
       .then(data => {
         if (data.status === 'success') {
           this.setState({
