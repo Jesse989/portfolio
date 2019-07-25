@@ -16,6 +16,10 @@ export default class About extends React.Component<State> {
     this.setState(s => ({ game: new Phaser.Game(config), loading: false }));
   }
 
+  componentWillUnmount() {
+    if (this.state.game) this.state.game.destroy(true);
+  }
+
   render() {
     return (
       <div style={styles.game} id="game">
