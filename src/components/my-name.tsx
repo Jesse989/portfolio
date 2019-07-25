@@ -1,12 +1,18 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-const MyName = () => (
-  <Fragment>
-    <h1 className="white fadeInFast">
-      Hello, I'm <b className="orange">Jesse Neumann</b>.
-    </h1>
-    <h1 className="white fadeInSlow">I'm a fullstack web developer.</h1>
-  </Fragment>
-);
+type Props = {
+  io: string;
+};
+
+const MyName = ({ io }: Props) => {
+  return (
+    <div>
+      <h1 className={`white fade${io}Fast`}>
+        Hello, I'm <b className="orange">Jesse Neumann</b>.
+      </h1>
+      <h1 className={`white fade${io}Fast`}>I'm a fullstack web developer.</h1>
+    </div>
+  );
+};
 
 export default MyName;

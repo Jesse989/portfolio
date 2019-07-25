@@ -59,26 +59,36 @@ div > .hover:hover {
 }
 
 .fadeInFast {
+  animation-duration: 1s;
+  animation-name: fadeIn;
+}
+
+.fadeOutFast {
+  animation-duration: 1s;
+  animation-name: fadeOut;
+}
+
+.fadeInSlow {
   animation-duration: 2s;
   animation-name: fadeIn;
 }
 
-@keyframes fadeInFast {
+.fadeOutSlow {
+  animation-duration: 2s;
+  animation: fadeOut;
+}
+
+@keyframes fadeOut {
   from {
-    opacity: 0;
+    opacity: 1;
   }
 
   to {
-    opacity: 1;
+    opacity: 0;
   }
 }
 
-.fadeInSlow {
-  animation-duration: 4s;
-  animation-name: fadeInSlow;
-}
-
-@keyframes fadeInSlow {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }

@@ -1,7 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
-const Frontend = () => (
-  <Fragment>
+type Props = {
+  io: string;
+};
+
+const Frontend = ({ io }: Props) => (
+  <div className={`white fade${io}Fast`}>
     <h1 className="white fadeInFast">I have style.</h1>
     <h2 className="white fadeInSlow">
       I think you will agree when I say that my UI/UX designs are not only
@@ -13,7 +17,7 @@ const Frontend = () => (
       latest in CSS and CSS-in-JS tools, combined with the power of WebGL and
       Canvas.
     </h2>
-  </Fragment>
+  </div>
 );
 
 export default Frontend;

@@ -1,12 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import mySqlImg from '../assets/mysql-icon.png';
 import postgresImg from '../assets/postgres-icon.png';
 import sqLiteImg from '../assets/sqlite-icon.png';
 import mongoDbImg from '../assets/mongodb.png';
 import redisImg from '../assets/redis-icon.png';
 
-const Backend = () => (
-  <Fragment>
+type Props = {
+  io: string;
+};
+
+const Backend = ({ io }: Props) => (
+  <div className={`white fade${io}Fast`}>
     <h1 className="white fadeInFast">I have persistence.</h1>
     <br />
     <img
@@ -43,7 +47,7 @@ const Backend = () => (
       Experience with different databases means choosing the correct database
       for the most optimal solution.
     </h2>
-  </Fragment>
+  </div>
 );
 
 export default Backend;

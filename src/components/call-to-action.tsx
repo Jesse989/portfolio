@@ -1,8 +1,12 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from '@reach/router';
 
-const CallToAction = () => (
-  <Fragment>
+type Props = {
+  io: string;
+};
+
+const CallToAction = ({ io }: Props) => (
+  <div className={`white fade${io}Fast`}>
     <h1 className="white fadeInFast">
       Like what you see? Please get in{' '}
       <Link className="link orange" to="/contact">
@@ -14,7 +18,7 @@ const CallToAction = () => (
       {' '}
       I'm always excited to discuss new ideas and projects.
     </h1>
-  </Fragment>
+  </div>
 );
 
 export default CallToAction;

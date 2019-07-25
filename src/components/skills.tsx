@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import tsImg from '../assets/ts-icon.png';
 import pImg from '../assets/phaser-icon.png';
 import reactImg from '../assets/react.svg';
@@ -7,32 +7,26 @@ import nImg from '../assets/nodejs-icon.svg';
 import eImg from '../assets/electron-icon.png';
 import gImg from '../assets/graphql.svg';
 
-const Skills = () => (
-  <Fragment>
-    <h1 className="white fadeInFast">I have the solution.</h1>
+type Props = {
+  io: string;
+};
+
+const Skills = ({ io }: Props) => (
+  <div className={`white fade${io}Fast`}>
+    <h1>I have solutions.</h1>
     <br />
-    <img
-      className="fadeInSlow"
-      alt="tech-icon"
-      style={styles.svg}
-      src={tsImg}
-    />
-    <img className="fadeInSlow" alt="tech-icon" style={styles.svg} src={nImg} />
-    <img
-      className="fadeInSlow"
-      alt="tech-icon"
-      style={styles.svg}
-      src={reactImg}
-    />
-    <img className="fadeInSlow" alt="tech-icon" style={styles.svg} src={rImg} />
-    <img className="fadeInSlow" alt="tech-icon" style={styles.svg} src={pImg} />
-    <img className="fadeInSlow" alt="tech-icon" style={styles.svg} src={eImg} />
-    <img className="fadeInSlow" alt="tech-icon" style={styles.svg} src={gImg} />
+    <img alt="tech-icon" style={styles.svg} src={tsImg} />
+    <img alt="tech-icon" style={styles.svg} src={nImg} />
+    <img alt="tech-icon" style={styles.svg} src={reactImg} />
+    <img alt="tech-icon" style={styles.svg} src={rImg} />
+    <img alt="tech-icon" style={styles.svg} src={pImg} />
+    <img alt="tech-icon" style={styles.svg} src={eImg} />
+    <img alt="tech-icon" style={styles.svg} src={gImg} />
     <h2 className="white fadeInSlow">
       Using tools such as TypeScript, Node, React, Redux, Phaser, Electron, and
       GraphQL, I create solutions that run on any platform.
     </h2>
-  </Fragment>
+  </div>
 );
 
 export default Skills;

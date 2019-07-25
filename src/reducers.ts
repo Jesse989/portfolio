@@ -44,13 +44,13 @@ function gameView(state = initialState, action: Action): GameView {
       return Object.assign(
         {},
         { ...state },
-        { moving: ACCELERATE, direction: action.direction, loading: true }
+        { moving: ACCELERATE, direction: action.direction }
       );
     case DECELERATE:
       return Object.assign(
         {},
         { ...state },
-        { moving: DECELERATE, direction: action.direction, loading: true }
+        { moving: DECELERATE, direction: action.direction }
       );
     case CHANGE_SCREEN:
       return {

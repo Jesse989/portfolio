@@ -7,25 +7,27 @@ import { State } from '../reducers';
 interface ViewChange {
   active: string;
   loading: boolean;
+  moving: boolean;
 }
 
-function View({ active, loading }: ViewChange) {
+function View({ active, loading, moving }: ViewChange) {
+  const io = moving ? 'Out' : 'In';
   let content;
   switch (active) {
     default:
-      content = <MyName />;
+      content = <MyName io={io} />;
       break;
     case 'skills':
-      content = <Skills />;
+      content = <Skills io={io} />;
       break;
     case 'frontend':
-      content = <Frontend />;
+      content = <Frontend io={io} />;
       break;
     case 'backend':
-      content = <Backend />;
+      content = <Backend io={io} />;
       break;
     case 'action':
-      content = <CallToAction />;
+      content = <CallToAction io={io} />;
       break;
   }
 
@@ -45,7 +47,8 @@ function View({ active, loading }: ViewChange) {
 const mapStateToProps = (state: State) => {
   return {
     active: state.gameView.screen,
-    loading: state.gameView.loading
+    loading: state.gameView.loading,
+    moving: state.gameView.moving
   };
 };
 

@@ -41,8 +41,8 @@ const mapStateToProps = (state: State) => {
   };
 };
 
-const TIME_TO_STOP = 420;
-const TIME_RUNNING = 1000;
+const TIME_TO_STOP = 210;
+const TIME_RUNNING = 500;
 
 const mapDispatchToProps = (dispatch: React.Dispatch<any>) => {
   return {

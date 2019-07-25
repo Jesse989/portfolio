@@ -17,7 +17,7 @@ export default class AboutScene extends Phaser.Scene {
 
   create() {
     this.tileSprites = [];
-    this.cameras.main.fadeIn(4000);
+    this.cameras.main.fadeIn(1000);
 
     for (let i = 6; i >= 0; i--) {
       this.tileSprites[i] = this.add
