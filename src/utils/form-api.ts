@@ -16,3 +16,10 @@ export async function postData(url = '', data = {}) {
   });
   return await response.json(); // parses JSON response into native JavaScript objects
 }
+
+// to wake up heroiku server
+export async function pingServer(url = '') {
+  // Default options are marked with *
+  const response = await fetch(url);
+  return await response.json(); // parses JSON response into native JavaScript objects
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Item, Form, Dimmer, Loader, Message } from 'semantic-ui-react';
 import validator from 'validator';
-import { postData } from '../utils/form-api';
+import { postData, pingServer } from '../utils/form-api';
 import ContactModal from '../components/contact-modal';
 import { validateForm } from '../utils/validate-form';
 
@@ -39,10 +39,14 @@ const initialState = Object.freeze({
   formData: defaultFormData
 });
 
+const emailServerURL: string = 'https://contact-follow-up.herokuapp.com/api';
+
 class ContactForm extends Component<any, State> {
   readonly state = initialState;
 
   componentDidMount() {
+    // ping email server to wake it up:
+    pingServer(emailServerURL);
     this.setState(s => ({ loading: false }));
   }
 
@@ -66,7 +70,7 @@ class ContactForm extends Component<any, State> {
   handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     this.setState({ loading: true });
 
-    postData('https://contact-follow-up.herokuapp.com/api', this.state.formData) // this.state = form data
+    postData(emailServerURL, this.state.formData) // this.state = form data
       .then(data => {
         if (data.status === 'success') {
           this.setState({
@@ -182,6 +186,7 @@ class ContactForm extends Component<any, State> {
                 />
                 <Form.Input
                   required
+                  // eslint-disable-next-line
                   error={formData.spam ? formData.spam != 3 : false}
                   id="spam"
                   icon="lightbulb outline"

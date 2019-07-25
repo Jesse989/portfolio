@@ -19,7 +19,8 @@ export const validateForm = (formData: ContactInfo) => {
         // validator takes currency string
         errors.push('Enter amount in USD');
     } else if (type === 'spam') {
-      if (formData[type] !== Number(3)) errors.push('Confirm that 1 + 2 = 3');
+      // eslint-disable-next-line
+      if (formData[type] != 3) errors.push('Confirm that 1 + 2 = 3');
     } else if (type === 'description') {
       if (!formData[type]) errors.push('Briefly describe your project');
     }
