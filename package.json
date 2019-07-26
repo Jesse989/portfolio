@@ -20,6 +20,7 @@
     "react-scripts": "3.0.0",
     "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
+    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
     "typescript": "^3.5.3",
     "validator": "^11.1.0"
