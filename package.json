@@ -26,7 +26,6 @@
     "validator": "^11.1.0"
   },
   "scripts": {
-    "build-semantic": "cd src/semantic && gulp build-css build-assets",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
