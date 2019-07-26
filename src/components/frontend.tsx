@@ -8,8 +8,7 @@ const Frontend = ({ io }: Props) => (
   <div className={`white fade${io}Fast`}>
     <h1 className="white fadeInFast">I have style.</h1>
     <h2 className="white fadeInSlow">
-      I think you will agree when I say that my UI/UX designs are not only
-      beautiful, but simple, and intuitive as well.
+      My UI/UX designs are beautiful, simple, and intuitive.
     </h2>
 
     <h2 className="white fadeInSlow">
