@@ -18,8 +18,7 @@ export async function postData(url = '', data = {}) {
 }
 
 // to wake up heroiku server
-export async function pingServer(url = '') {
+export function pingServer(url = '') {
   // Default options are marked with *
-  const response = await fetch(url);
-  return await response.json(); // parses JSON response into native JavaScript objects
+  fetch(url);
 }

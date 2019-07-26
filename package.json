@@ -20,16 +20,15 @@
     "react-scripts": "3.0.0",
     "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
-    "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
     "typescript": "^3.5.3",
     "validator": "^11.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject"
   },
   "browserslist": {
     "production": [
@@ -44,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^5.2.4",
     "@types/chai": "^4.1.7",
     "@types/enzyme": "^3.10.3",
     "@types/reach__router": "^1.2.4",
@@ -51,6 +51,8 @@
     "@types/redux": "^3.6.0",
     "@types/sinon": "^7.0.13",
     "chai": "^4.2.0",
+    "craco-less": "^1.9.0",
+    "semantic-ui-less": "^2.4.1",
     "sinon": "^7.3.2"
   }
 }
