@@ -69,8 +69,9 @@ const styles = {
     backgroundColor: 'rgba(0,0,50,.3)'
   } as React.CSSProperties,
   inner: {
-    margin: '20vh auto',
+    margin: 'auto',
     width: '90%',
-    maxWidth: '800px'
+    maxWidth: '800px',
+    paddingBottom: '22vh'
   } as React.CSSProperties
 };
