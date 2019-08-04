@@ -12,12 +12,6 @@ export const validateForm = (formData: ContactInfo) => {
     } else if (type === 'email') {
       if (!validator.isEmail(formData[type]))
         errors.push('Please enter a valid email');
-    } else if (type === 'website') {
-      if (!validator.isURL(formData[type])) errors.push('Invalid URL');
-    } else if (type === 'budget') {
-      if (!validator.isCurrency(String(formData[type])))
-        // validator takes currency string
-        errors.push('Enter amount in USD');
     } else if (type === 'spam') {
       // eslint-disable-next-line
       if (formData[type] != 3) errors.push('Confirm that 1 + 2 = 3');

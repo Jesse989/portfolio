@@ -9,8 +9,6 @@ export type ContactInfo = {
   first: string;
   last: string;
   email: string;
-  website: string;
-  budget: string;
   spam: number;
   description: string;
 };
@@ -26,8 +24,6 @@ const defaultFormData: ContactInfo = {
   first: '',
   last: '',
   email: '',
-  website: '',
-  budget: '',
   spam: 0,
   description: ''
 };
@@ -151,39 +147,7 @@ class ContactForm extends Component<any, State> {
                   label="Email"
                   placeholder="jd@email.com"
                   onChange={this.handleChange}
-                />
-                <Form.Input
-                  required
-                  error={
-                    formData.website
-                      ? !validator.isURL(formData.website)
-                      : false
-                  }
-                  id="website"
-                  icon="linkify"
-                  iconPosition="left"
-                  fluid
-                  label="Website"
-                  placeholder="www.wwjd.com"
-                  onChange={this.handleChange}
-                />
-              </Form.Group>
-              <Form.Group widths="equal">
-                <Form.Input
-                  required
-                  error={
-                    formData.budget
-                      ? !validator.isCurrency(formData.budget)
-                      : false
-                  }
-                  id="budget"
-                  icon="dollar"
-                  iconPosition="left"
-                  fluid
-                  label="Budget"
-                  placeholder="100"
-                  onChange={this.handleChange}
-                />
+                />  
                 <Form.Input
                   required
                   // eslint-disable-next-line

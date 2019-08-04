@@ -11,18 +11,20 @@
 
 # TODO:
 
+- update featured projects
+- img placeholders in portfolio
 - tests:
   - react components
   - redux store
   - e2e
+- add links to github for each project (done)
+- add links to github and linked in under contact form (done)
 - form validation before allowing submission. (done)
-- show user if confirmation email fails, prompt for new email.
+- show user if confirmation email fails, prompt for new email. (done)
 - create email template (done)
 - create test for server (done)
-- rethink flow in about
-- fill out 'slide' components
-- img placeholders in portfolio
-- links in email
-- update featured projects
-- deploy spa
-- deploy mail server
+- rethink flow in about (done)
+- fill out 'slide' components (done)
+- links in email (done)
+- deploy spa, CI/CD (done)
+- deploy mail server, CI/CD (done)
