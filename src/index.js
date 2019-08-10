@@ -9,6 +9,10 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 
 import * as serviceWorker from './serviceWorker';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-145379007-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 export const store = createStore(rootReducer);
 
