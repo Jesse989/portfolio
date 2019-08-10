@@ -27,7 +27,8 @@ const projects = [
       'heroku.jpg'
     ],
     img: libraryScreen,
-    link: 'https://library-notebook.herokuapp.com/'
+    link: 'https://library-notebook.herokuapp.com/',
+    github: 'https://github.com/Jesse989/library-apollo'
   },
   {
     title: 'Heart of the Labyrinth',
@@ -49,7 +50,8 @@ const projects = [
       'itchio.svg'
     ],
     img: labyrinthScreen,
-    link: 'https://jesse989.itch.io/the-heart-of-the-labyrinth'
+    link: 'https://jesse989.itch.io/the-heart-of-the-labyrinth',
+    github: 'https://github.com/Jesse989/basic-fantasy-rpg'
   },
   {
     title: 'Coffee eCommerce Site',
@@ -69,7 +71,8 @@ const projects = [
       'heroku.jpg'
     ],
     img: coffeeScreen,
-    link: 'https://gypsy-chick-espresso.herokuapp.com/'
+    link: 'https://gypsy-chick-espresso.herokuapp.com/',
+    github: 'https://github.com/Jesse989/gypsy-espresso'
   }
 ];
 
@@ -83,8 +86,10 @@ export default function Portfolio() {
       stack={projects[index].stack}
       img={projects[index].img}
       link={projects[index].link}
+      github={projects[index].github}
     />
   ));
+
   return (
     <Container style={styles.container}>
       <Item.Group divided relaxed>

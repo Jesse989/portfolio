@@ -11,29 +11,14 @@
 
 # TODO:
 
-## Things I would like to change:
-
-- update library project and host it on a paid dyno
-- finish coffee site or swap it with a better example
+- update featured projects
 - img placeholders in portfolio
-
-## Things others would like me to change:
-
-### Git:
-
-- Put link up for github. Maybe on contact page, after removing some fields (see below).
-
-### Contact Form:
-
-- Too many fields, may deter client from committing. Remove:
-
-1. website
-2. last
-3. budget
-4. info
-
-### Finished:
-
+- tests:
+  - react components
+  - redux store
+  - e2e
+- add links to github for each project (done)
+- add links to github and linked in under contact form (done)
 - form validation before allowing submission. (done)
 - show user if confirmation email fails, prompt for new email. (done)
 - create email template (done)
@@ -41,5 +26,5 @@
 - rethink flow in about (done)
 - fill out 'slide' components (done)
 - links in email (done)
-- deploy spa (done)
-- deploy mail server (done)
+- deploy spa, CI/CD (done)
+- deploy mail server, CI/CD (done)

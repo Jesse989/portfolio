@@ -8,6 +8,7 @@ type Props = {
   stack: string[];
   link: string;
   img: string;
+  github: string;
 };
 
 export default function Project({
@@ -16,7 +17,8 @@ export default function Project({
   description,
   stack,
   link,
-  img
+  img,
+  github
 }: Props) {
   const icons =
     stack &&
@@ -42,15 +44,18 @@ export default function Project({
     });
   return (
     <Item>
-      <Item.Image style={styles.image} src={img} size="large" />
+      <Item.Image style={styles.image} src={img} size='large' />
 
-      <Item.Content verticalAlign="middle">
-        <Item.Header as="a" target="_blank" href={link}>
+      <Item.Content verticalAlign='middle'>
+        <Item.Header as='a' target='_blank' href={link}>
           {title}
         </Item.Header>
-        <Item.Meta as="h3">{meta}</Item.Meta>
-        <Item.Description>{formattedDescription}</Item.Description>
 
+        <Item.Meta as='h3'>{meta}</Item.Meta>
+        <Item.Meta as='a' target='_blank' href={github}>
+          Check me out on Github!
+        </Item.Meta>
+        <Item.Description>{formattedDescription}</Item.Description>
         <Item.Extra>{icons ? icons : <Loader />}</Item.Extra>
       </Item.Content>
     </Item>
