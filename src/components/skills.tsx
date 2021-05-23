@@ -1,10 +1,9 @@
 import React from 'react';
-import tsImg from '../assets/ts-icon.png';
-import pImg from '../assets/phaser-icon.png';
-import reactImg from '../assets/react.svg';
-import nImg from '../assets/nodejs-icon.svg';
-import eImg from '../assets/electron-icon.png';
-import gImg from '../assets/graphql.svg';
+import serverlessIcon from '../assets/serverless.png';
+import sqsIcon from '../assets/sqs.png';
+import lambdaIcon from '../assets/lambda.png';
+import blockchainIcon from '../assets/blockchain.png';
+import s3Icon from '../assets/s3.png';
 
 type Props = {
   io: string;
@@ -12,16 +11,14 @@ type Props = {
 
 const Skills = ({ io }: Props) => (
   <div className={`white fade${io}Fast`}>
-    <h1>I have solutions.</h1>
-    <img alt="tech-icon" style={styles.svg} src={tsImg} />
-    <img alt="tech-icon" style={styles.svg} src={nImg} />
-    <img alt="tech-icon" style={styles.svg} src={reactImg} />
-    <img alt="tech-icon" style={styles.svg} src={pImg} />
-    <img alt="tech-icon" style={styles.svg} src={eImg} />
-    <img alt="tech-icon" style={styles.svg} src={gImg} />
+    <h1>Cloud Architect</h1>
+    <img alt="tech-icon" style={styles.svg} src={lambdaIcon} />
+    <img alt="tech-icon" style={styles.svg} src={sqsIcon} />
+    <img alt="tech-icon" style={styles.svg} src={serverlessIcon} />
+    <img alt="tech-icon" style={styles.svg} src={blockchainIcon} />
+    <img alt="tech-icon" style={styles.svg} src={s3Icon} />
     <h2 className="white fadeInSlow">
-      Using TypeScript, Node, React, Redux, Phaser, Electron, and GraphQL, I
-      create solutions that run on any platform.
+      I'm passionate about building distributed, highly available services, leveraging the infinite scalability of the cloud
     </h2>
   </div>
 );

@@ -1,9 +1,9 @@
 import React from 'react';
-import mySqlImg from '../assets/mysql-icon.png';
-import postgresImg from '../assets/postgres-icon.png';
-import sqLiteImg from '../assets/sqlite-icon.png';
-import mongoDbImg from '../assets/mongodb.png';
-import redisImg from '../assets/redis-icon.png';
+import pythonIcon from '../assets/python.png';
+import numpyIcon from '../assets/numpy.png';
+import jupyterIcon from '../assets/jupyter.png';
+import kerasIcon from '../assets/keras.png';
+import tensorFlowIcon from '../assets/tensorflow.png';
 
 type Props = {
   io: string;
@@ -11,41 +11,40 @@ type Props = {
 
 const Backend = ({ io }: Props) => (
   <div className={`white fade${io}Fast`}>
-    <h1 className="white fadeInFast">I have persistence.</h1>
+    <h1 className="white fadeInFast">Data Scientist</h1>
     <br />
     <img
       className="fadeInSlow"
       alt="tech-icon"
       style={styles.svg}
-      src={mySqlImg}
+      src={pythonIcon}
     />
     <img
       className="fadeInSlow"
       alt="tech-icon"
       style={styles.svg}
-      src={postgresImg}
+      src={numpyIcon}
     />
     <img
       className="fadeInSlow"
       alt="tech-icon"
       style={styles.svg}
-      src={sqLiteImg}
+      src={jupyterIcon}
     />
     <img
       className="fadeInSlow"
       alt="tech-icon"
       style={styles.svg}
-      src={mongoDbImg}
+      src={kerasIcon}
     />
     <img
       className="fadeInSlow"
       alt="tech-icon"
       style={styles.svg}
-      src={redisImg}
+      src={tensorFlowIcon}
     />
     <h2 className="white fadeInSlow">
-      Experience with different databases means choosing the correct database
-      for the most optimal solution.
+      Having my education in Data Science means my solutions are designed in a Data First paradigm. I know first hand the business value of a well designed data pipeline
     </h2>
   </div>
 );

@@ -10,7 +10,7 @@ const MyName = ({ io }: Props) => {
       <h1 className={`white fade${io}Fast`}>
         Hello, I'm <b className="orange">Jesse Neumann</b>.
       </h1>
-      <h1 className={`white fade${io}Fast`}>I'm a fullstack web developer.</h1>
+      <h1 className={`white fade${io}Fast`}>I'm a fullstack software engineer</h1>
     </div>
   );
 };
