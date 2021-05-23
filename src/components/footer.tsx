@@ -24,12 +24,12 @@ export default function Footer() {
               Portfolio
             </Link>
           </Grid.Column>
-          <Grid.Column>
+          {/* <Grid.Column>
             <Link style={styles.link} to="/contact">
               <Icon size="large" name="comment outline" />
               Contact
             </Link>
-          </Grid.Column>
+          </Grid.Column> */}
         </Grid>
       </Grid>
     </Sidebar>

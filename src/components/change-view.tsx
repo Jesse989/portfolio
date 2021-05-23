@@ -13,16 +13,7 @@ type Props = {
 function ChangeView({ moveRight, moveLeft, loading }: Props) {
   return (
     <Fragment>
-      <div className="white hover" style={styles.floatingLeft}>
-        <Icon
-          disabled={loading}
-          onClick={moveLeft}
-          floated="left"
-          size="huge"
-          name="angle double left"
-        />
-      </div>
-      <div className="white hover" style={styles.floatingRight}>
+      <div className="white hover pulse" style={styles.floatingRight}>
         <Icon
           disabled={loading}
           onClick={moveRight}
@@ -37,7 +28,7 @@ function ChangeView({ moveRight, moveLeft, loading }: Props) {
 
 const mapStateToProps = (state: State) => {
   return {
-    loading: state.gameView.loading
+    loading: state.gameView.loading,
   };
 };
 
@@ -63,14 +54,11 @@ const mapDispatchToProps = (dispatch: React.Dispatch<any>) => {
           dispatch(changeScreen('backward'));
         }, TIME_TO_STOP);
       }, TIME_RUNNING);
-    }
+    },
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(ChangeView);
+export default connect(mapStateToProps, mapDispatchToProps)(ChangeView);
 
 const styles = {
   floatingLeft: {
@@ -78,13 +66,13 @@ const styles = {
     left: 0,
     top: '5vh',
     zIndex: 1,
-    cursor: 'pointer'
+    cursor: 'pointer',
   } as React.CSSProperties,
   floatingRight: {
     position: 'absolute',
     right: 0,
     top: '5vh',
     zIndex: 1,
-    cursor: 'pointer'
-  } as React.CSSProperties
+    cursor: 'pointer',
+  } as React.CSSProperties,
 };

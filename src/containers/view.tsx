@@ -48,14 +48,11 @@ const mapStateToProps = (state: State) => {
   return {
     active: state.gameView.screen,
     loading: state.gameView.loading,
-    moving: state.gameView.moving
+    moving: state.gameView.moving,
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(View);
+export default connect(mapStateToProps, null)(View);
 
 const styles = {
   view: {
@@ -66,12 +63,12 @@ const styles = {
     height: '100%',
     width: '100%',
     zIndex: 0,
-    backgroundColor: 'rgba(0,0,50,.3)'
+    backgroundColor: 'rgba(0,0,50,.3)',
   } as React.CSSProperties,
   inner: {
     margin: 'auto',
     width: '90%',
     maxWidth: '800px',
-    paddingBottom: '22vh'
-  } as React.CSSProperties
+    paddingBottom: '22vh',
+  } as React.CSSProperties,
 };

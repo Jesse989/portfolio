@@ -3,7 +3,6 @@ import { Router } from '@reach/router';
 
 import About from './about';
 import Portfolio from './portfolio';
-import Contact from './contact';
 
 import { Footer } from '../components';
 
@@ -14,7 +13,7 @@ export default function Pages() {
       <Router primary={false} component={Fragment}>
         <About path="/" />
         <Portfolio path="/portfolio" />
-        <Contact path="/contact" />
+        {/* <Contact path="/contact" /> */}
       </Router>
     </Fragment>
   );

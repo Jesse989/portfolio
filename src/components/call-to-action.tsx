@@ -1,17 +1,17 @@
 import React from 'react';
-import { Link } from '@reach/router';
 
 type Props = {
   io: string;
 };
 
+const linkedInUrl = 'https://www.linkedin.com/in/jesse989/'
 const CallToAction = ({ io }: Props) => (
   <div className={`white fade${io}Fast`}>
     <h1 className="white fadeInFast">
       Like what you see? Please get in{' '}
-      <Link className="link orange" to="/contact">
+      <a className="link orange" href={linkedInUrl}>
         touch
-      </Link>
+      </a>
       .
     </h1>
     <h1 className="white fadeInSlow">
