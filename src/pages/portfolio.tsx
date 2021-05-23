@@ -4,8 +4,52 @@ import { Item, Container } from 'semantic-ui-react';
 import labyrinthScreen from '../assets/lab_port.png';
 import coffeeScreen from '../assets/coffee_screen.png';
 import libraryScreen from '../assets/lib_screen.png';
+import neurocannScreen from '../assets/neurocann-screen.png';
+import gameOracleScreen from '../assets/game-oracle-screen.png'
+
 
 const projects = [
+    {
+    title: 'Seed to Sale Cannabis ERP',
+    meta: 'Giving cannabis operators information critical for effective decision making.',
+    description: [
+      'Enterprise Web Application built on AWS Cloud infrastructure.',
+      'React frontend with a Serverless backend.',
+      'Infinitely scalable serverless data-lake, collects transactional data from each business domain.',
+      'Completely integrated with Metrc, the regulatory body chosen by the government.',
+      'Backend built with Cloud best-practices, including message idempotency, transactional error rollbacks, and heavy use of the Choreography pattern.',
+      'Communication between services occurs in real time via streams and events.'
+    ],
+    stack: [
+      'react.svg',
+      'es6.svg',
+      'nodejs-icon.svg',
+      'webpack-icon.svg',
+      's3.png',
+      'sqs.png',
+      'lambda.png'
+    ],
+    img: neurocannScreen,
+    link: 'https://library-notebook.herokuapp.com/',
+  },
+      {
+    title: 'Game Oracle',
+    meta: 'Using Machine Learning to build a recommendation engine for Game Devs.',
+    description: [
+      'See real time predictions of a games successfulness.',
+      'React frontend with a Flask backend.',
+      'Based on a dataset created using crawlers written in Python.',
+      'Final model chosen after fitting several different types and choosing the highest performing.',
+    ],
+    stack: [
+      'react.svg',
+      'es6.svg',
+      'nodejs-icon.svg',
+      'webpack-icon.svg',
+    ],
+    img: gameOracleScreen,
+    link: 'https://library-notebook.herokuapp.com/',
+  },
   {
     title: 'Personal Library Notebook',
     meta: 'Keep track of your personal library with ratings and notes.',

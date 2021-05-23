@@ -24,7 +24,7 @@ export default class About extends React.Component<State> {
     return (
       <div style={styles.game} id="game">
         <ChangeView />
-        <View />
+        <View loading={this.state.loading} active={''} moving={this.state.loading}/>
       </div>
     );
   }

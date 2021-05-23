@@ -8,7 +8,7 @@ type Props = {
   stack: string[];
   link: string;
   img: string;
-  github: string;
+  github?: string;
 };
 
 export default function Project({
@@ -52,9 +52,9 @@ export default function Project({
         </Item.Header>
 
         <Item.Meta as='h3'>{meta}</Item.Meta>
-        <Item.Meta as='a' target='_blank' href={github}>
+        {github && <Item.Meta as='a' target='_blank' href={github}>
           Check me out on Github!
-        </Item.Meta>
+        </Item.Meta>}
         <Item.Description>{formattedDescription}</Item.Description>
         <Item.Extra>{icons ? icons : <Loader />}</Item.Extra>
       </Item.Content>
